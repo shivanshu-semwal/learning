@@ -1,0 +1,100 @@
+= Floating Numbers
+:stem:
+:toc:
+
+- https://www.youtube.com/watch?v=bbkcEiUjehk[Video of How Floating-Point Numbers Are Represented]
+
+== Fixed Point Representation
+
+`0000.0000`
+
+Here we are using fixed number of bits for *fractional part* and *integer part*.
+Like `0.5` is represented as `0000.1000`
+
+Using this representation we cannot represent large range of numbers. Because we have fixed the bits for the fractional part, and now they cannot be used for the integer part.
+
+== Floating Point Representation
+
+- *Mantissa* and *Exponent*
+
+`128` can be represented as `1.28 * 10^2` in scientific notation. `0.0042` can be represented as `4.2 * 10^-3`.
+Here exponent is `-3` and mantissa is `4.2` (`10 > mantissa >= 1`)
+In binary, same thing we replace `10` with `2`. `1.01 * 2^110`
+
+
+So now we can represent greater range of numbers, but we have now less precision in the fractional part of the number.
+
+=== Standard for floating point representation
+
+To make the floating point calculations uniform across different machines, IEEE devised a standard `IEEE 754` with many ways to represent floating point representations.
+
+Two most common are
+
+- single precision, uses 32 bits
+- double precision, uses 64 bits
+
+==== Single Precision
+
+- https://en.wikipedia.org/wiki/Single-precision_floating-point_format
+
+32 bits
+
+- 1 bit for sign
+- 8 bit for exponent
+- 23 bit for mantissa
+
+But it's not that simple
+
+- 23 bit for mantissa, but as _we said `2 > mantissa >= 1`, that is first bit would always be `1` so it is taken as implied and now we have 24 bit precision instead.
+- 8 bit exponent that means 0 to 255 for positive numbers, but we want to have negative exponents too. This we can do by subtracting 127. So half numbers are positive and half are negative.
+
+Still how do we represent 0, since 1 is always implied.
+
+For this the when exponent is stem:[(00)_H] and stem:[(FF)_H] have special meaning.
+
+.Numbers represented using exponent and fractions combinations
+[cols="1,1,1"]
+|===
+| 
+|fraction = 0 
+|fraction != 0
+
+|exponent = stem:[(00)_H]
+|+-zero
+|subnormal number
+
+|exponent = stem:[(FF)_H] 
+|+-infinity
+|NaN
+|===
+
+.Single precision numbers complete table
+[cols=",,,",]
+|===
+|Exponent |fraction = 0 |fraction ≠ 0 |Equation
+
+|00~H~
+|±zero
+|subnormal number
+|latexmath:[$(-1)^{\text{sign}} \times 2^{- 126} \times 0.\text{fraction}$]
+
+|01~H~, ..., FE~H~
+|normal value 
+|
+|latexmath:[$(-1)^{\text{sign}} \times 2^{\text{exponent} - 127} \times 1.\text{fraction}$]
+
+|FF~H~
+|±infinity
+|NaN
+|
+|===
+
+==== Double Precision
+
+- https://en.wikipedia.org/wiki/Double-precision_floating-point_format
+
+64 bits
+
+- 1 bit for sign
+- 11 bit for exponent
+- 52 bit for mantissa

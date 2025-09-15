@@ -1,0 +1,106 @@
+= How Numbers are Represented
+:source-highlighter: highlight.js
+:toc:
+
+Positive Numbers can be easily represented as binary numbers, but how about negative numbers.
+
+Here we will take following example to explain
+
+[source,]
+----
+000 -> 0
+001 -> 1
+010 -> 2
+011 -> 3
+100 -> 4
+101 -> 5
+110 -> 6 
+111 -> 7
+----
+
+== Offset Binary
+
+- https://en.wikipedia.org/wiki/Offset_binary
+
+So we can subtract 3 and get following representation
+
+[source,]
+----
+000 -> -3
+001 -> -2
+010 -> -1
+011 -> 0
+100 -> 1
+101 -> 2
+110 -> 3 
+111 -> 4
+----
+
+Cons of this method,
+
+- Nothing is correctly mapped to it's binary representation.
+- If you want to add numbers there is no easy way to do so.
+    Like `-2 + 4 = 2` but in binary, `001 + 111 = 000 = -3?`
+
+== Sign Magnitude
+
+So, when the most significant bit becomes one, we start with 
+negative numbers
+
+[source,]
+----
+000 -> 0
+001 -> 1
+010 -> 2
+011 -> 3
+100 -> -0
+101 -> -1
+110 -> -2
+111 -> -3
+----
+
+- This method has two zeros.
+- This method has a sign bit.
+- Also how you perform additions?
+    `-2 + 3 = 1` in binary `110 + 011 = 001`, it works
+    `-3 + 1 = -2` in binary `111 + 001 = 000`, didn't work
+    so even though we are able to recognize the numbers
+    in their binary form, but the numbers are not complement of each other and won't give correct results.
+
+== One's Complement
+
+[source,]
+----
+000 -> 0
+001 -> 1
+010 -> 2
+011 -> 3
+100 -> -3
+101 -> -2
+110 -> -1 
+111 -> -0
+----
+
+Here, we represent the negative numbers with their complement.
+So, `3 = 011, -3= ~011 = 100`. So now when we do calculations it will give correct results, `3 + -3 = 011 + 100 = 111` which represents zero.
+
+But we still have two representations of zero.
+
+== Two's Complement
+
+[source,]
+----
+000 -> 0
+001 -> 1
+010 -> 2
+011 -> 3
+100 -> -4
+101 -> -3
+110 -> -2 
+111 -> -1
+----
+
+Here, we represent as a complement of the number but add 1 in end. This solves the two 0 problem and calculations also work out.
+
+`-3 + 3 = 101 + 011 = 000`
+`-2 + 3 = 110 + 011 = 001`
