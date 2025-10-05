@@ -1,0 +1,1 @@
+cmd_/home/totoro/Programming/os/osbook/ch2/Module.symvers :=  sed 's/ko$$/o/'  /home/totoro/Programming/os/osbook/ch2/modules.order | scripts/mod/modpost -m      -o /home/totoro/Programming/os/osbook/ch2/Module.symvers -e -i Module.symvers -T - 

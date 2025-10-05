@@ -1,0 +1,1 @@
+cmd_/home/totoro/Programming/os/osbook/ch2/simple.mod := printf '%s\n'   simple.o | awk '!x[$$0]++ { print("/home/totoro/Programming/os/osbook/ch2/"$$0) }' > /home/totoro/Programming/os/osbook/ch2/simple.mod

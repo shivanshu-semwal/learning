@@ -1,0 +1,1 @@
+cmd_/home/totoro/Programming/os/osbook/ch2/simple.ko := ld -r -m elf_x86_64 -z noexecstack --no-warn-rwx-segments --build-id=sha1  -T arch/x86/module.lds -o /home/totoro/Programming/os/osbook/ch2/simple.ko /home/totoro/Programming/os/osbook/ch2/simple.o /home/totoro/Programming/os/osbook/ch2/simple.mod.o;  true
