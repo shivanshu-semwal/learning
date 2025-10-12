@@ -1,0 +1,107 @@
+############################
+# Combined Language .gitignore
+############################
+
+# Compiled source, object files, and build directories (C/C++ & C/C++/Java)
+############################
+# C/C++ build artifacts
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+# CMake build output
+/build/
+/CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+# Common output directories
+[Dd]ebug/
+[Rr]elease/
+bin/
+obj/
+
+# Java build artifacts and IDE files
+############################
+# Compiled classes
+*.class
+# JAR files
+*.jar
+*.war
+*.ear
+# Package files
+/target/
+/build/
+# Maven & Gradle artifacts
+/pom.xml.tag
+/pom.xml.releaseBackup
+/release.properties
+/dependency-reduced-pom.xml
+# Gradle files
+.gradle
+/gradle-wrapper/
+# Maven/Gradle lock files
+/gradlew
+/gradlew.bat
+
+# Python artifacts and virtual environments
+############################
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+# Virtual environment
+.venv
+venv/
+env/
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+# C extensions
+*.so
+
+# Log files and temporary files
+############################
+*.log
+*.tmp
+*.bak
+
+# Operating System and IDE Files (Global Ignores)
+############################
+# Linux
+*~
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# VS Code
+.vscode/
+# IntelliJ/JetBrains IDEs (e.g., PyCharm, IntelliJ IDEA)
+.idea/
+# Eclipse
+.project
+.classpath
+.settings/
+
+.ipynb_checkpoints
