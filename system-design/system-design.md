@@ -27,3 +27,6 @@
     - Communication - Method calls, events, callbacks
     - Rules - SOLD Principles (for OOP), DRY, OOD
 
+## A simple basic architecture
+
+
