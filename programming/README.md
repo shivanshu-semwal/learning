@@ -5,10 +5,10 @@ Most programming languages are text-based formal languages, but they may also be
 
 ## Elements
 
-- syntax
-- semantics
-- type system
-- standard library and run time system
+- Syntax
+- Semantics
+- Type system
+- Standard library and run time system
 
 ## Outline
 
@@ -17,3 +17,4 @@ Most programming languages are text-based formal languages, but they may also be
 - [Programming Paradigms](programming-paradigms/README.md)
 
 ## Resources
+
